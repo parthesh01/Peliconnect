@@ -366,7 +366,7 @@ export async function getInfinitePosts({ pageParam }: { pageParam: number}) {
 }
 
 
-export async function searchPosts(searchTerm: string) {q
+export async function searchPosts(searchTerm: string) {
     try {
         const posts = await databases.listDocuments(
             appwriteConfig.databaseId,
