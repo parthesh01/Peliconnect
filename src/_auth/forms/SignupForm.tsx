@@ -7,7 +7,6 @@ import { useToast } from "@/hooks/use-toast"
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -85,15 +84,15 @@ const SignupForm = () => {
 
   return (
     <Form {...form}>
-      <div className="sm:w-420 flex-center flex-col">
+      <div className="flex-col sm:w-420 flex-center">
         <img src="/assets/images/logo1.png" alt="logo"/>
 
-        <h2 className="h3-bold md:h3-bold pt-5 sm:pt-7 ">Create a new account</h2>
-        <p className="text-light-3 small-medium md:base-regular mt-2">To use PeliConnect, please enter your details</p>
+        <h2 className="pt-5 h3-bold md:h3-bold sm:pt-7 ">Create a new account</h2>
+        <p className="mt-2 text-light-3 small-medium md:base-regular">To use PeliConnect, please enter your details</p>
 
 
 
-        <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-5 w-full mt-4">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col w-full gap-5 mt-4">
           <FormField
                 control={form.control}
                 name="name"
@@ -147,16 +146,16 @@ const SignupForm = () => {
           )}
           />
           <Button type="submit" className="shad-button_primary">
-            {isCreatingAccount ? (
-              <div className="flex-center gap-2">
+            {isCreatingAccount || isSigningInUser || isUserLoading ? (
+              <div className="gap-2 flex-center">
                 <Loader/> Loading...
               </div>
             ) : "Sign Up"}
           </Button>
 
-          <p className="text-small-regular text-light-2 text-center mt-2">
+          <p className="mt-2 text-center text-small-regular text-light-2">
             Already have an account?
-            <Link to="/sign-in" className="text-primary-500 text-small-semibold ml-1">Log In</Link>
+            <Link to="/sign-in" className="ml-1 text-primary-500 text-small-semibold">Log In</Link>
           </p>
         </form>
       </div>
